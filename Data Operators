@@ -1,0 +1,13 @@
+Operator                Descriptions
+
+1) sizeof()             Get the size of
+
+2) []                   Array subscripts
+
+3) &                    The address of
+
+4) *                    The value of
+
+5) ->                   Structure dereference
+
+6) .                    Structure reference
