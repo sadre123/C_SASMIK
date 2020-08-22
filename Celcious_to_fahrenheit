@@ -1,0 +1,24 @@
+1 /* This program is to convert given input temperature in celcious to farhenheit
+  2  *
+  3  * F = C * 1.8000 + 32.00
+  4  */
+  5
+  6 #include <stdio.h>
+  7
+  8 int main()
+  9 {
+ 10         double F = 0.0;
+ 11
+ 12         int C = 0;
+ 13
+ 14         printf("Enter temerature in celcius : ");
+ 15         scanf("%d", &C);
+ 16
+ 17         /* Accept -ve input as well */
+ 18
+ 19         F = (C * (float)9/5 + 32.00);
+ 20
+ 21         printf("%d Celcious = %f Fahrenheit\n",C, F);
+ 22
+ 23         return 0;
+ 24 }
