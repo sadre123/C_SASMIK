@@ -1,0 +1,94 @@
+/*
+ * Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+ *
+ * e.g
+ * Input: nums = [-4,-1,0,3,10]
+ * Output: [0,1,9,16,100]
+ * Explanation: After squaring, the array becomes [16,1,0,9,100].
+ * After sorting, it becomes [0,1,9,16,100].
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+unsigned int SqrtArr(int num) {
+
+        unsigned int sqr = 0;
+
+        sqr = (num * num);
+
+        return sqr;
+}
+
+
+int *GetSortedArray(int *arr, int n) {
+
+        int i;
+        int Sqr = 0, temp = 0, j;
+
+        static int *SortedArray = NULL;
+
+        SortedArray = (int *)malloc(n * sizeof(int));
+
+        for (i = 0; i < n; i++) {
+
+                Sqr = SqrtArr(arr[i]);
+                arr[i] = Sqr;
+        }
+
+
+        /* Sort the array */
+        for (i = 0; i < n; i++) {
+
+                for (j = 0; j < n - 1 - i; j++) {
+
+                        if (arr[j] > arr[j+1]) {
+                                temp = arr[j];
+                                arr[j] = arr[j+1];
+                                arr[j+1] = temp;
+                        }
+                }
+        }
+
+        for (i = 0; i < n; i++) {
+                SortedArray[i] = arr[i];
+        }
+
+
+
+        return SortedArray;
+}
+
+
+int main() {
+
+        int arr[500] = {0};
+        int * SortedArray = NULL;
+        int n = 0, i, TotalNoWithEvenNoofDigits = 0;
+
+        printf("Enter the total number of elemnts in array:");
+        scanf("%d",&n);
+
+        printf("Enter elements in array\n");
+        for (i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+        }
+
+        printf("Entered elements of array are\n");
+        for (i = 0; i < n; i++) {
+                printf("%d ", arr[i]);
+        }
+
+        printf("\n");
+        SortedArray = GetSortedArray(arr, n);
+
+        for (i = 0; i < n; i++) {
+
+                printf("%d ",SortedArray[i]);
+        }
+
+        printf("\n");
+
+        return 0;
+}
