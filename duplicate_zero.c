@@ -17,7 +17,7 @@
 void DuplicateZeros(int *arr, int n) {
 
         int i, j;
-
+#if 0
         for (i = 0; i < n;) {
                 if (arr[i] == 0) {
                         //shift the array
@@ -29,6 +29,21 @@ void DuplicateZeros(int *arr, int n) {
                 }
                 i++;
         }
+#endif
+        
+        //for in-place use the below logic
+          for (i = 0; i < n;) {
+                if (arr[i] == 0) {
+                        //shift and overwrite the array
+                        for (j = n-1; j >= i+1; j--) {
+                                arr[j] = arr[j-1];
+                        }
+                        arr[i+1] = 0;
+                        i = i + 1;
+                }
+                i++;
+        }
+
 
         for (i = 0; i < n; i++) {
                 printf("%d ", arr[i]);
