@@ -1,0 +1,7 @@
+Letf shift means a * 2^n
+Right shift means a/2^n
+
+e.g 1 << 5 ==> 1 * 2^5 = 32
+
+e.g 1 >> 5 ==> 1/2^5 = 0
+
